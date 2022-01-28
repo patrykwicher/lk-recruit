@@ -3,7 +3,7 @@
       <div class="field">
          <div class="control">
             <input
-               @input="onInput"
+               @input="onInput($event)"
                placeholder="Type here..."
                type="text"
                class="input"
@@ -42,7 +42,7 @@ export default {
       )
       const onInput = ({ target: { value } }) => {
          clearTimeout(timeout)
-         state.timeout = setTimeout(() => (state.search = value), 500)
+         state.timeout = setTimeout(() => (state.search = value.toLowerCase().trim()), 500)
       }
       const mockRequest = () => {
          return new Promise(resolve => {
@@ -56,7 +56,7 @@ export default {
          await mockRequest()
          state.loading = false
       })
-      return { tableContent, tableConfig, onInput }
+      return { tableContent, tableConfig, onInput, state }
    }
 }
 </script>

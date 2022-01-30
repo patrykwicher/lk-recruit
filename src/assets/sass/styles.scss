@@ -71,4 +71,8 @@ $custom-colors: (
    transform: translateY(30px);
    transition: $ease;
 }
+.modal-content {
+   background-color: $grey-light;
+   border-radius: $radius;
+}
 @import './utils.scss';

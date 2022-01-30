@@ -45,13 +45,16 @@ export default {
          default: false
       }
    },
+   emits: ["select"],
    setup(props, { emit }) {
       const tableConfig = computed(() => ({
          columns: props.config.columns,
          headers: props.config.headers,
          content: props.content
       }))
-      const selectRow = row => emit('select', row)
+      const selectRow = row => {
+         emit('select', row)
+      }
       return { tableConfig, selectRow }
    }
 }
